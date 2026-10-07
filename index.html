@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ⚠️ Meta Pixel Code यहाँ Paste करो (अपने Pixel ID के साथ) -->
+<!-- End Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NITYA PUBLICATION™ · Work From Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
+
+body {
+  background: #070a16;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Background Glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34,197,94,0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,215,0,0.12) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(59,130,246,0.08) 0%, transparent 50%);
+  animation: bgMove 20s ease infinite;
+  z-index: 0;
+}
+
+@keyframes bgMove {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(-5%, -5%) rotate(180deg); }
+}
+
+/* ===== CARD ===== */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 430px;
+  border-radius: 28px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(34,197,94,0.5), rgba(255,215,0,0.5), rgba(34,197,94,0.5));
+  background-size: 300% 300%;
+  animation: borderShift 6s ease infinite;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(34,197,94,0.15);
+}
+
+@keyframes borderShift {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.inner {
+  background: linear-gradient(180deg, #0f172a 0%, #0a1020 100%);
+  border-radius: 26px;
+  padding: 34px 26px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner Top Glow Line */
+.inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+}
+
+/* ===== BADGES ===== */
+.top-badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.badge-verified {
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: #4ade80;
+}
+
+.badge-live {
+  background: rgba(251,191,36,0.12);
+  border: 1px solid rgba(251,191,36,0.3);
+  color: #fbbf24;
+}
+
+.badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ===== AVATAR ===== */
+.avatar-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 18px;
+}
+
+.avatar-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #22c55e, #FFD700, #22c55e, #FFD700, #22c55e);
+  animation: spin 6s linear infinite;
+  z-index: 0;
+}
+
+.avatar-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #22c55e, #FFD700, #22c55e, #FFD700, #22c55e);
+  animation: spin 6s linear infinite;
+  z-index: 0;
+  filter: blur(15px);
+  opacity: 0.6;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.avatar {
+  position: relative;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0f172a;
+  background: #1a1f2e;
+  display: block;
+}
+
+/* Online Dot */
+.online-dot {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  background: #22c55e;
+  border: 4px solid #0f172a;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(34,197,94,0.7);
+}
+
+.online-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  animation: ringPulse 1.8s ease infinite;
+}
+
+@keyframes ringPulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ===== TITLE ===== */
+h1 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #FFD700 50%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding: 6px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 30px;
+}
+
+.sub-title::before,
+.sub-title::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #FFD700;
+}
+
+.desc {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  padding: 0 6px;
+}
+
+.desc strong {
+  color: #FFD700;
+  font-weight: 700;
+}
+
+/* ===== STATS STRIP ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.stat {
+  background: rgba(15,23,42,0.9);
+  padding: 14px 8px;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.stat:hover {
+  background: rgba(34,197,94,0.08);
+}
+
+.stat-num {
+  font-size: 17px;
+  font-weight: 800;
+  color: #FFD700;
+  line-height: 1;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.stat-lbl {
+  font-size: 8.5px;
+  color: #94a3b8;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ===== CTA BUTTON ===== */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+  background-size: 200% 200%;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 14px;
+  letter-spacing: 0.3px;
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(34,197,94,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+  animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  transition: left 0.7s ease;
+}
+
+.btn:hover::before { left: 100%; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(34,197,94,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.btn:active { transform: translateY(0) scale(0.98); }
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ===== TRUST SECTION ===== */
+.trust-box {
+  background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02));
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.trust-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #e2e8f0;
+  font-weight: 500;
+  padding: 6px 0;
+}
+
+.trust-row + .trust-row {
+  border-top: 1px solid rgba(34,197,94,0.1);
+  margin-top: 6px;
+  padding-top: 12px;
+}
+
+.trust-check {
+  width: 20px;
+  height: 20px;
+  background: rgba(34,197,94,0.15);
+  border: 1px solid rgba(34,197,94,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ade80;
+  font-size: 11px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+  font-size: 10px;
+  color: #FFD700;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 22px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+}
+
+/* ===== FEATURES ===== */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.feature {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.feature:hover {
+  border-color: rgba(255,215,0,0.3);
+  background: rgba(255,215,0,0.05);
+  transform: translateY(-3px);
+}
+
+.feature-icon {
+  font-size: 22px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.feature-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.feature-desc {
+  font-size: 9.5px;
+  color: #94a3b8;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ===== TIMER ===== */
+.timer {
+  margin-top: 20px;
+  padding: 12px;
+  background: linear-gradient(90deg, transparent, rgba(250,204,21,0.08), transparent);
+  border-top: 1px solid rgba(250,204,21,0.15);
+  border-bottom: 1px solid rgba(250,204,21,0.15);
+  font-size: 12px;
+  color: #facc15;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.timer .pulse-dot {
+  width: 7px;
+  height: 7px;
+  background: #facc15;
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+  box-shadow: 0 0 10px #facc15;
+}
+
+/* ===== PROOF ===== */
+.proof {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ===== RISK ===== */
+.risk {
+  margin-top: 12px;
+  font-size: 10.5px;
+  color: #64748b;
+  line-height: 1.5;
+  padding: 0 6px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.footer a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 5px 12px;
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 30px;
+  background: rgba(255,215,0,0.04);
+  transition: all 0.25s;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.footer a:hover {
+  background: rgba(255,215,0,0.1);
+  border-color: rgba(255,215,0,0.4);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:400px){
+  .inner { padding: 28px 20px 22px; }
+  h1 { font-size: 20px; }
+  .avatar-wrap, .avatar { width: 115px; height: 115px; }
+  .btn { font-size: 14px; padding: 16px; }
+  .feature-title { font-size: 10.5px; }
+  .stat-num { font-size: 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="inner">
+
+  <!-- BADGES -->
+  <div class="top-badges">
+    <span class="badge badge-verified">
+      <span class="dot"></span> Verified
+    </span>
+    <span class="badge badge-live">
+      <span class="dot"></span> Hiring
+    </span>
+  </div>
+
+  <!-- AVATAR -->
+  <div class="avatar-wrap">
+    <img class="avatar"
+      src="https://i.ibb.co/wZNjvgZC/VShj-Ae2z3tq-BHAm-m3y-G4nu-TWF3zzancpfnh-OKVys-Ku-NS3l0t-G2nzxk-Eo-P1-PD60m-O-3-Vr-YY1-Fz-A-d-MKDRW8b-F.jpg"
+      alt="NITYA PUBLICATION">
+    <span class="online-dot"></span>
+  </div>
+
+  <!-- TITLE -->
+  <h1>NITYA PUBLICATION™</h1>
+  <div class="sub-title">Handwriting Work</div>
+
+  <p class="desc">
+    Join India's trusted <strong>Work From Home</strong> community for handwriting jobs — No experience needed, daily work available.
+  </p>
+
+  <!-- TOP CTA -->
+  <a href="https://t.me/+FxFFfY56kacxMGEx" class="btn" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+    Join Free Telegram Channel
+  </a>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">5K+</span>
+      <span class="stat-lbl">Writers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-lbl">Free</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">24/7</span>
+      <span class="stat-lbl">Support</span>
+    </div>
+  </div>
+
+  <!-- TRUST BOX -->
+  <div class="trust-box">
+    <div class="trust-row">
+      <span class="trust-check">✓</span>
+      <span>Trusted by 5,000+ active writers across India</span>
+    </div>
+    <div class="trust-row">
+      <span class="trust-check">✓</span>
+      <span>Daily work opportunities posted on Telegram</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section-title">What You Get</div>
+  <div class="features">
+
+    <div class="feature">
+      <span class="feature-icon">✍️</span>
+      <div class="feature-title">Handwriting Jobs</div>
+      <div class="feature-desc">No experience needed</div>
+    </div>
+
+    <div class="feature">
+      <span class="feature-icon">⏰</span>
+      <div class="feature-title">Flexible Hours</div>
+      <div class="feature-desc">Work anytime you want</div>
+    </div>
+
+    <div class="feature">
+      <span class="feature-icon">💰</span>
+      <div class="feature-title">Payment Info</div>
+      <div class="feature-desc">Bank / UPI guidance</div>
+    </div>
+
+    <div class="feature">
+      <span class="feature-icon">📱</span>
+      <div class="feature-title">Just a Mobile</div>
+      <div class="feature-desc">No laptop required</div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <a href="https://t.me/+FxFFfY56kacxMGEx" class="btn" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+    Join Free Telegram Channel
+  </a>
+
+  <!-- TIMER -->
+  <div class="timer">
+    <span class="pulse-dot"></span>
+    Free Access Closing Soon
+  </div>
+
+  <div class="proof">📚 Limited Seats · Active Community</div>
+
+  <p class="risk">
+    ⚠ Work from home opportunity — no investment required
+  </p>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Powered by
+    <br>
+    <a href="https://t.me/+CKzXLc93ze44MTdl" target="_blank" rel="noopener">
+      @amitgrowthagency
+    </a>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
